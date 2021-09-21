@@ -14,13 +14,10 @@ public class SwiftSoundModePlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
       switch call.method {
         case "getRingerMode":
-
              Mute.shared.notify = { 
-               [weak self] m in
-               self?.str = m ? "vibrate" : "normal"
+              m in
+               result(m ? "vibrate" : "normal");
               }
-
-          result(self.str);
         default:
           break;
       }
